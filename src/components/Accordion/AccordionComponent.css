@@ -1,0 +1,16 @@
+.summarize-icon {
+    padding-right: 10px;
+    color:grey;
+  }
+  
+  .accordion-container {
+    max-width: 600px;
+  }
+  
+  .MuiAccordionSummary-content {
+    display: flex;
+    justify-content: space-between;
+  }
+  .icon-group-container {
+    display: flex;
+  }
