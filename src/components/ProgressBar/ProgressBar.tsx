@@ -3,8 +3,13 @@ import ProgressBar from "react-bootstrap/ProgressBar";
 
 import "./ProgressBar.css";
 
-function ProgressBart() {
-  const now = 40;
+interface ProgressBarProps {
+  percentage: number;
+}
+
+
+const ProgressBart: React.FC<ProgressBarProps> = ({ percentage }) => {
+
   return (
     <>
       <div className="progress-bar-container">
@@ -13,7 +18,7 @@ function ProgressBart() {
         </Typography>
         <div className="prog-container">
           <Typography>
-            <ProgressBar now={now} label={`${now}%`} />
+            <ProgressBar now={percentage} label={`${percentage.toFixed(0)}%`} />
           </Typography>
         </div>
       </div>

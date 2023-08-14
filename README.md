@@ -1,4 +1,6 @@
-# React + TypeScript + Vite
+# Lodgify - FE Technical Challenge 
+
+RELLENAR AQUI EL README PARA LODGIFY
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

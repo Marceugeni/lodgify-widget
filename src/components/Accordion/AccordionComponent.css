@@ -4,7 +4,7 @@
   }
   
   .accordion-container {
-    max-width: 600px;
+    width: 600px;
   }
   
   .MuiAccordionSummary-content {
@@ -13,4 +13,14 @@
   }
   .icon-group-container {
     display: flex;
+  }
+
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    padding-left: 16px;
+  }
+
+  .checkbox-description {
+    padding-left: 10px;
   }
