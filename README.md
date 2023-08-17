@@ -1,6 +1,15 @@
 # Lodgify - FE Technical Challenge 
 
-RELLENAR AQUI EL README PARA LODGIFY
+## Steps for running the application:
+1. clone the repo in a new folder
+2. go to the new folder and get into lodgify-widget folder
+3. perform an "npm install" command 
+4. perform an "npm run dev" command
+5. choose you favorite browser and go to http://localhost:5173/ 
+6. use the app. 
+
+
+
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
