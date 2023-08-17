@@ -10,54 +10,45 @@ import "./AccordionComponent.css";
 
 interface AccordionComponentProps {
   tasksData: TaskCategories[];
-  
+
   onUpdateTotalSumValue: (totalSumValue: number) => void;
 }
 
-const AccordionComponent: React.FC<AccordionComponentProps> = ({
-  tasksData, onUpdateTotalSumValue
-}) => {
+const AccordionComponent: React.FC<AccordionComponentProps> = ({ tasksData, onUpdateTotalSumValue }) => {
   const [isOpen, setIsOpen] = useState<boolean[]>(new Array(tasksData.length).fill(false));
-  const [tasksAndValues, setTasksAndValues] = useState<{ [taskId: string]: number }>({});
-  const [totalSumValue, setTotalSumValue] = useState(0)
+  const [tasksAndValues, setTasksAndValues] = useState<{[taskId: string]: number;}>({});
+  const [totalSumValue, setTotalSumValue] = useState(0);
 
-  console.log(onUpdateTotalSumValue);
-  
-
-  // const emptyNumber  = 1
-  
   const handleAccordionClick = (index: number) => {
-    setIsOpen(prevState => {
+    setIsOpen((prevState) => {
       const newState = [...prevState];
       newState[index] = !newState[index];
       return newState;
     });
   };
 
-
   const handleCheckboxClick = (taskId: string, value: number) => {
-    setTasksAndValues(prevValues => ({
+    setTasksAndValues((prevValues) => ({
       ...prevValues,
-      [taskId]: prevValues[taskId] ? 0 : value / 227
+      [taskId]: prevValues[taskId] ? 0 : value / 227,
     }));
   };
 
-useEffect(() => {
-    // Calculate the sum of values whenever tasksAndValues changes. It can be done with a useMemo but i don't know how... ;D
-    const sum = Object.values(tasksAndValues).reduce((total, value) => total + value, 0);
-    setTotalSumValue(sum*100);
-    onUpdateTotalSumValue(sum*100)
+  useEffect(() => {
+    // Calculate the sum of values whenever tasksAndValues changes.
+    const sum = Object.values(tasksAndValues).reduce(
+      (total, value) => total + value,
+      0
+    );
+    setTotalSumValue(sum * 100);
+    onUpdateTotalSumValue(sum * 100);
   }, [tasksAndValues]);
 
-  console.log("theTotalin percentage: ", totalSumValue)
-  console.log("taskand", tasksAndValues)
-
-  
   return (
     <div className="accordion-container">
       {tasksData.map((data, index) => (
         <Accordion key={data.name} expanded={isOpen[index]}>
-          <AccordionSummary 
+          <AccordionSummary
             onClick={() => handleAccordionClick(index)}
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel1a-content"
@@ -74,9 +65,12 @@ useEffect(() => {
           <AccordionDetails>
             {data.tasks.map((task) => (
               <div key={task.description} className="checkbox-container">
-                <input 
+                <input
                   type="checkbox"
-                  onChange={() => handleCheckboxClick(task.description, task.value)} />
+                  onChange={() =>
+                    handleCheckboxClick(task.description, task.value)
+                  }
+                />
                 <Typography className="checkbox-description">
                   {task.description}
                 </Typography>

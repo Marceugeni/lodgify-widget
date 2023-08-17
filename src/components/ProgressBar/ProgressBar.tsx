@@ -7,9 +7,7 @@ interface ProgressBarProps {
   percentage: number;
 }
 
-
 const ProgressBart: React.FC<ProgressBarProps> = ({ percentage }) => {
-
   return (
     <>
       <div className="progress-bar-container">
@@ -24,6 +22,6 @@ const ProgressBart: React.FC<ProgressBarProps> = ({ percentage }) => {
       </div>
     </>
   );
-}
+};
 
 export default ProgressBart;
